@@ -1,0 +1,76 @@
+# game class
+class Game:
+
+    # initializer
+    def __init__(self, player1, player2):
+        # instance variable - players
+        self.player1 = player1
+        self.player2 = player2
+        # instance variables - hold the round info
+        self.rounds = {
+            'current': 0,
+            'total': 0,
+            'winners': []
+        }
+
+    # determine round winner
+    def determine_round_winner(self):
+        # Get the current move from each player
+        one = self.player1.current_move
+        two = self.player2.current_move
+        winner = 'Unknown'
+
+        # determine winner based on move
+        if one == 'rock' and two == 'paper':
+            winner = self.player2.name
+        elif one == 'rock' and two == 'scissors':
+            winner = self.player1.name
+        elif one == 'scissors' and two == 'rock':
+            winner = self.player2.name
+        elif one == 'scissors' and two == 'paper':
+            winner = self.player1.name
+        elif one == 'paper' and two == 'rock':
+            winner = self.player1.name
+        elif one == 'paper' and two == 'scissors':
+            winner = self.player2.name
+        elif one == two:
+            winner = 'tie'
+
+        # append winner to round winners list
+        self.rounds['winners'].append(winner)
+
+    # print the round winner
+    def print_round_winner(self):
+        # print the round winner based on current round
+        print(f'Round {self.rounds["current"]} winner: {self.rounds["winners"][self.rounds["current"] - 1]}')
+
+    # print the intro
+    def print_game_intro(self):
+        print(f'Game Start: {self.player1.name} vs {self.player2.name}')
+        print(f'====================')
+
+    # print the game recap
+    def print_game_recap(self):
+        print('\nGame Recap:')
+        print(f'====================')
+        # loop through the range of the rounds
+        for game_round in range(self.rounds["total"]):
+            # print the round and winner
+            print(f'Round {game_round + 1}: {self.rounds["winners"][game_round]}')
+            # print the player choices
+            print(f'{self.player1.name}: {self.player1.moves[game_round]} , {self.player2.name}: {self.player2.moves[game_round]}')
+
+    # play the game
+    def play_game(self):
+        # Update round
+        self.rounds["current"] += 1
+        # get the player choices
+        self.player1.move()
+        self.player2.move()
+        print(f"{self.player1.name}: {self.player1.current_move}")
+        print(f"{self.player2.name}: {self.player2.current_move}")
+        # determine winner
+        self.determine_round_winner()
+        self.print_round_winner()
+
+
