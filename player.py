@@ -60,7 +60,7 @@ class Person(Player):
         # Loop until user enters valid input
         while choice not in Player.choices:
             try:
-                choice = input(f'Enter a choice ({Player.choices}): ')
+                choice = input(f'Enter a choice ({Player.choices}): ').lower()
             except Exception as e:
                 print('Invalid input.')
 

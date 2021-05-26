@@ -65,7 +65,7 @@ class Game:
 
     # print the intro
     def print_game_intro(self):
-        print(f'Game Start: {self.player1.name} vs {self.player2.name}')
+        print(f'\nGame Start: {self.player1.name} vs {self.player2.name}')
         print(f'====================')
 
     # print the game recap
