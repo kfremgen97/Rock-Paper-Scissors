@@ -85,7 +85,8 @@ class Human(Player):
         # Loop until user enters valid input
         while choice not in Player.choices:
             try:
-                choice = input(f'{self.name} enter a choice ({Player.choices}): ').lower()
+                choice = input(f'{self.name} enter a choice '
+                               f'({Player.choices}): ').lower()
             except Exception as e:
                 print('Invalid input.')
 

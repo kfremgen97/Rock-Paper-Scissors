@@ -18,7 +18,8 @@ if __name__ == '__main__':
     # Get the amount of rounds for the game
     while rounds not in range(1, 21):
         try:
-            rounds = int(input(f'Enter the amount of rounds for the game(1-20): '))
+            rounds = int(input(f'Enter the amount of rounds '
+                               'for the game(1-20): '))
         except Exception as e:
             print('Invalid input')
 

@@ -78,7 +78,8 @@ class Game:
         # loop through the range of the rounds
         for game_round in range(self.rounds["total"]):
             # print the round and winner
-            print(f'Round {game_round + 1}: {self.rounds["winners"][game_round]}')
+            print(f'Round {game_round + 1}: '
+                  f'{self.rounds["winners"][game_round]}')
             # print the player choices
             print(f'\t{self.player1.name}: {self.player1.moves[game_round]} '
                   f', {self.player2.name}: {self.player2.moves[game_round]}')
@@ -96,4 +97,3 @@ class Game:
         # print the recap
         time.sleep(1)
         self.print_game_recap()
-
