@@ -56,6 +56,8 @@ class Person(Player):
         # get a choice from the user input
         choice = ''
 
+        print("")
+        # Loop until user enters valid input
         while choice not in Player.choices:
             try:
                 choice = input(f'Enter a choice ({Player.choices}): ')

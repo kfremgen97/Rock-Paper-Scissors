@@ -1,17 +1,33 @@
+# imports
+import time
+
+
 # game class
 class Game:
 
     # initializer
-    def __init__(self, player1, player2):
+    def __init__(self,rounds, player1, player2):
         # instance variable - players
         self.player1 = player1
         self.player2 = player2
         # instance variables - hold the round info
         self.rounds = {
             'current': 0,
-            'total': 0,
+            'total': rounds,
             'winners': []
         }
+
+    # play a round
+    def play_round(self):
+        # Update round
+        self.rounds["current"] += 1
+        # get the player choices
+        self.player1.move()
+        self.player2.move()
+        # determine winner
+        self.determine_round_winner()
+        # print the round info
+        self.print_round_info()
 
     # determine round winner
     def determine_round_winner(self):
@@ -39,10 +55,13 @@ class Game:
         # append winner to round winners list
         self.rounds['winners'].append(winner)
 
-    # print the round winner
-    def print_round_winner(self):
+    # print the round info
+    def print_round_info(self):
+        print(f'-----Round {self.rounds["current"]}-----')
+        print(f"{self.player1.name}: {self.player1.current_move}")
+        print(f"{self.player2.name}: {self.player2.current_move}")
         # print the round winner based on current round
-        print(f'Round {self.rounds["current"]} winner: {self.rounds["winners"][self.rounds["current"] - 1]}')
+        print(f'Winner: {self.rounds["winners"][self.rounds["current"] - 1]}')
 
     # print the intro
     def print_game_intro(self):
@@ -62,15 +81,18 @@ class Game:
 
     # play the game
     def play_game(self):
-        # Update round
-        self.rounds["current"] += 1
-        # get the player choices
-        self.player1.move()
-        self.player2.move()
-        print(f"{self.player1.name}: {self.player1.current_move}")
-        print(f"{self.player2.name}: {self.player2.current_move}")
-        # determine winner
-        self.determine_round_winner()
-        self.print_round_winner()
+        # print the intro
+        self.print_game_intro()
+
+        # play the amount of rounds
+        for game_round in range(self.rounds['total']):
+            # play the round
+            self.play_round()
+
+        # print the recap
+        time.sleep(1)
+        self.print_game_recap()
+
+
 
 
