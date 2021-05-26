@@ -6,7 +6,7 @@ import time
 class Game:
 
     # initializer
-    def __init__(self,rounds, player1, player2):
+    def __init__(self, rounds, player1, player2):
         # instance variable - players
         self.player1 = player1
         self.player2 = player2
@@ -77,7 +77,8 @@ class Game:
             # print the round and winner
             print(f'Round {game_round + 1}: {self.rounds["winners"][game_round]}')
             # print the player choices
-            print(f'\t{self.player1.name}: {self.player1.moves[game_round]} , {self.player2.name}: {self.player2.moves[game_round]}')
+            print(f'\t{self.player1.name}: {self.player1.moves[game_round]} '
+                  f'{self.player2.name}: {self.player2.moves[game_round]}')
 
     # play the game
     def play_game(self):
@@ -92,7 +93,3 @@ class Game:
         # print the recap
         time.sleep(1)
         self.print_game_recap()
-
-
-
-

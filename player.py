@@ -6,14 +6,14 @@ import random
 class Player:
 
     # class variable - hold the choices the player can choose
-    choices = ['rock','paper','scissors']
+    choices = ['rock', 'paper', 'scissors']
 
     # initializer
     def __init__(self, name):
         # instance variable - player name
         self.name = name
         # instance variable - hold current player choice
-        self.current_move = None  # Hold the value of none since game did not start yet
+        self.current_move = None
         # instance variable - hold the player choices
         self.moves = []
 

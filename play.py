@@ -16,14 +16,14 @@ if __name__ == '__main__':
     rounds = 0
 
     # Get the amount of rounds for the game
-    while rounds not in range(1,21):
+    while rounds not in range(1, 21):
         try:
             rounds = int(input('Enter the amount of rounds for the game(1-20): '))
         except Exception as e:
             print('Invalid input')
 
     # initialize game
-    game = game.Game(rounds,p1, p2)
+    game = game.Game(rounds, p1, p2)
 
     # play the game
     game.play_game()
