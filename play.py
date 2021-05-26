@@ -4,21 +4,21 @@ import game
 
 if __name__ == '__main__':
 
-    print("Welcome to Rock,Paper,Scissors")
+    print("Welcome to Rock,Paper,Scissors!")
     print('Before we start, we need some information')
 
     # get the player 1 name
     p1_name = input('Enter your name: ').strip()
 
     # initialize players
-    p1 = player.Person(p1_name)
-    p2 = player.Computer('p2')
+    p1 = player.Human(p1_name)
+    p2 = player.Random()
     rounds = 0
 
     # Get the amount of rounds for the game
     while rounds not in range(1, 21):
         try:
-            rounds = int(input('Enter the amount of rounds for the game(1-20): '))
+            rounds = int(input(f'Enter the amount of rounds for the game(1-20): '))
         except Exception as e:
             print('Invalid input')
 

@@ -24,6 +24,9 @@ class Game:
         # get the player choices
         self.player1.move()
         self.player2.move()
+        # learn the player choices
+        self.player1.learn(self.player2.current_move)
+        self.player2.learn(self.player1.current_move)
         # determine winner
         self.determine_round_winner()
         # print the round info
@@ -78,7 +81,7 @@ class Game:
             print(f'Round {game_round + 1}: {self.rounds["winners"][game_round]}')
             # print the player choices
             print(f'\t{self.player1.name}: {self.player1.moves[game_round]} '
-                  f'{self.player2.name}: {self.player2.moves[game_round]}')
+                  f', {self.player2.name}: {self.player2.moves[game_round]}')
 
     # play the game
     def play_game(self):
@@ -93,3 +96,4 @@ class Game:
         # print the recap
         time.sleep(1)
         self.print_game_recap()
+
