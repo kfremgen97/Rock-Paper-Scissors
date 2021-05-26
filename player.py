@@ -45,4 +45,26 @@ class Computer(Player):
 
 # person Player
 class Person(Player):
-    pass
+
+    # initializer
+    def __init__(self, player):
+        # super initializer
+        super().__init__(player)
+
+    # choose hand choice
+    def move(self):
+        # get a choice from the user input
+        choice = ''
+
+        while choice not in Player.choices:
+            try:
+                choice = input(f'Enter a choice ({Player.choices}): ')
+            except Exception as e:
+                print('Invalid input.')
+
+        # set the current move
+        self.current_move = choice
+        # add the choice to current move list
+        self.moves.append(choice)
+        # return the choice
+        return choice

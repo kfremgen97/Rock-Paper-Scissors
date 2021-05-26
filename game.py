@@ -58,7 +58,7 @@ class Game:
             # print the round and winner
             print(f'Round {game_round + 1}: {self.rounds["winners"][game_round]}')
             # print the player choices
-            print(f'{self.player1.name}: {self.player1.moves[game_round]} , {self.player2.name}: {self.player2.moves[game_round]}')
+            print(f'\t{self.player1.name}: {self.player1.moves[game_round]} , {self.player2.name}: {self.player2.moves[game_round]}')
 
     # play the game
     def play_game(self):

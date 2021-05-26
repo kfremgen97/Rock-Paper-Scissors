@@ -5,7 +5,7 @@ import game
 if __name__ == '__main__':
 
     # create new instances for game
-    p1 = player.Computer('p1')
+    p1 = player.Person('kevin')
     p2 = player.Computer('p2')
     game = game.Game(p1, p2)
 
